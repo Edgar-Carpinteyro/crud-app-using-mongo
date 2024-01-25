@@ -7,11 +7,16 @@
 </head>
 <body>
 
-    <h1>Enter user</h1>
+    <h1>Social Application</h1>
+
+    <h2>Enter username, password, title of the post, and body of the post</h2>
     
+    <!-- Users -->
     <form action="/users" method="POST">
         <input type="text" id="username" placeholder="Username" name="username" />
         <input type="text" id="password" placeholder="Password" name="password" />
+        <input type="text" id="title" placeholder="Title" name="title">
+        <input type="text" id="body" placeholder="Body" name="body">
         <button type="submit">Submit</button>
     </form>
     <button id="update-button">Replace password</button>
@@ -29,6 +34,15 @@
                     <%= body.users[i].password %>
                 </span>
             </li>
+            <% } %>
+
+            <% for (var i = 0; i < body.posts.length; i++) { %>
+                <li class="post">
+                    <!-- Output title from the iterated post object -->
+                    <h3><%= body.posts[i].title %></h3>
+                    <!-- Output body from the iterated post object -->
+                    <p><%= body.posts[i].body %></p>
+                </li>
             <% } %>
     </ul>
 
